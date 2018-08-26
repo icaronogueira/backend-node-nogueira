@@ -13,8 +13,6 @@ const app = express();
 
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB);
-// mongoose.connect("mongodb://icaronogueira:segredo123@ds133642.mlab.com:33642/rateapp_nogueira",
-//        {useMongoCliente: true});
 
 app.use(helmet());
 app.use(compression());
@@ -57,7 +55,7 @@ app.use('/api', file);
 
 
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log("Server running on port 3000");
 });
  
